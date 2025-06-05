@@ -56,10 +56,10 @@ def generate_completion(req: https_fn.CallableRequest) -> dict:
 
         user_doc_ref = db.collection('users').document(uid)
         user_doc_ref.update({
-            'AIanswers': firestore.ArrayUnion([assistant_message])
+            'AIResponses': firestore.ArrayUnion([assistant_message])
         })
 
-        return {"message": assistant_message}
+        return {"reply": assistant_message}
 
     except Exception as e:
         print(f"Error: {str(e)}")
